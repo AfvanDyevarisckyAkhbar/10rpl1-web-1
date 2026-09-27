@@ -3,93 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Biodata</title>
+    <title>Menu Utama - PPLG</title>
     <style>
-        /* Mengatur font dasar dan latar belakang halaman */
-        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; }
-        
-        /* Mengatur kotak putih tengah (container) dengan bayangan halus */
-        .container { max-width: 500px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin: auto; }
-        
-        /* Memberi jarak bawah pada setiap kelompok elemen form */
-        .form-group { margin-bottom: 15px; }
-        
-        /* Membuat label tampil tebal di atas kolom isian */
-        label { display: block; font-weight: bold; margin-bottom: 5px; }
-        
-        /* Membuat input, textarea, dan select selebar penuh dengan border rapi */
-        input[type="text"], input[type="number"], textarea, select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        
-        /* Styling tombol simpan berwarna biru */
-        button { width: 100%; background-color: #007BFF; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer; }
+        /* Mengatur tampilan dasar (tema gelap mirip chat) */
+        body {
+            font-family: Arial, sans-serif;
+            /* Latar belakang gelap, Anda bisa menggantinya dengan gambar pola/doodle jika punya */
+            background-color: #0f1115; 
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Kotak pembungkus utama untuk tampilan HP (Mobile First) */
+        .container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Gaya untuk pesan header "Pilih menu di bawah:" */
+        .header-chat {
+            background-color: #1e2329;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .header-chat .time {
+            font-size: 12px;
+            color: #8b939c;
+        }
+
+        /* Daftar menu */
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* Jarak antar tombol */
+        }
+
+        /* Gaya untuk setiap tombol menu */
+        .menu-item {
+            background-color: #1a1e24; /* Warna abu-abu gelap */
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #2c323a; /* Garis tepi tipis */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.2s;
+        }
+
+        /* Efek saat tombol disentuh atau diklik */
+        .menu-item:hover, .menu-item:active {
+            background-color: #2c323a;
+        }
+
+        /* Memberi jarak antara ikon emoji dan teks */
+        .menu-item span {
+            margin-right: 10px;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
-    <!-- Kotak pembungkus form -->
+
     <div class="container">
-        <h2><text style="font-weight: bold;">BIODATA</text></h2>
         
-        <!-- Form utama -->
-        <form id="biodataForm">
-            <!-- Input Nama -->
-            <div class="form-group"><label>Nama:</label><input type="text" id="nama" required></div>
+        <!-- Header Mirip Chat Telegram/WA -->
+        <div class="header-chat">
+            <span>Pilih menu di bawah:</span>
+            <span class="time">04:41</span>
+        </div>
+
+        <!-- Daftar Tombol Menu -->
+        <div class="menu-list">
+            <!-- Ganti tanda # dengan link file html atau link tujuan Bapak -->
+            <a href="form_biodata.html" class="menu-item"><span>📊</span> Form Biodata</a>
+            <a href="hasil_biodata.html" class="menu-item"><span>📋</span> Hasil Biodata</a>
+            <a href="tabel.html" class="menu-item"><span>🔎</span> Tabel</a>
+            <a href="#" class="menu-item"><span>🚩</span> Cek Kecurigaan Hari Ini</a>
+            <a href="#" class="menu-item"><span>📍</span> Kunci Lokasi PKL</a>
+            <a href="#" class="menu-item"><span>📊</span> Cek Kehadiran Bimbingan PKL</a>
+            <a href="#" class="menu-item"><span>📋</span> Pending Approval PKL</a>
+            <a href="#" class="menu-item"><span>📔</span> Cek Jurnal Bimbingan PKL</a>
             
-            <!-- Input Alamat -->
-            <div class="form-group"><label>Alamat:</label><textarea id="alamat" required></textarea></div>
-            
-            <!-- Pilihan Jurusan -->
-            <div class="form-group"><label>Jurusan:</label>
-                <select id="jurusan" required>
-                    <option value="RPL">RPL</option><option value="TKJ">TKJ</option>
-                    <option value="TKR">TKR</option><option value="TSM">TSM</option><option value="TEI">TEI</option>
-                </select>
-            </div>
-            
-            <!-- Pilihan Jenis Kelamin (Radio Button) -->
-            <div class="form-group"><label>Jenis Kelamin:</label>
-                <input type="radio" name="jk" value="Laki-laki" checked> Laki-laki
-                <input type="radio" name="jk" value="Perempuan"> Perempuan
-                <input type="radio" name="jk" value="Boti"> Boti
-            </div>
-            
-            <!-- Input Tinggi Badan -->
-            <div class="form-group"><label>Tinggi Badan (cm):</label><input type="number" id="tinggi" step="any" required></div>
-            
-            <!-- Input Berat Badan -->
-            <div class="form-group"><label>Berat Badan (kg):</label><input type="number" id="berat" step="any" required></div>
-            
-            <!-- Input Hobi -->
-            <div class="form-group"><label>Hobi:</label><input type="text" id="hobi" required></div>
-            
-            <!-- Input Nomor HP -->
-            <div class="form-group"><label>No. HP:</label><input type="number" id="hp" maxlength="13" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 13);" required></div>
-            
-            <!-- Tombol untuk menjalankan fungsi JavaScript -->
-            <button type="button" onclick="simpanDanPindah()">Simpan</button>
-        </form>
+            <!-- Contoh jika menu ini mengarah ke file atau web lain -->
+            <a href="http://www.bagusjava.com/" class="menu-item"><span>🌐</span> Portal Laporan Web</a>
+        </div>
+
     </div>
 
-    <script>
-        // Fungsi yang berjalan saat tombol Simpan diklik
-        function simpanDanPindah() {
-            // Mengambil data dari setiap input form dan menyimpannya ke dalam objek JavaScript
-            const data = {
-                nama: document.getElementById('nama').value,
-                alamat: document.getElementById('alamat').value,
-                jurusan: document.getElementById('jurusan').value,
-                jk: document.querySelector('input[name="jk"]:checked').value,
-                tinggi: document.getElementById('tinggi').value,
-                berat: document.getElementById('berat').value,
-                hobi: document.getElementById('hobi').value,
-                hp: document.getElementById('hp').value
-            };
-            
-            // Mengubah objek data menjadi string JSON dan menyimpannya ke memori browser (LocalStorage)
-            localStorage.setItem('biodata', JSON.stringify(data));
-            
-            // Berpindah otomatis ke halaman hasil biodata
-            window.location.href = '10rpl_hasil_biodata.html';
-        }
-    </script>
 </body>
 </html>
