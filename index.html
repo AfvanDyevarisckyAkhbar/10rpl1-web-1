@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Utama - PPLG</title>
+    <title>Afvan Dyevariscky Akhbar | Menu Utama</title>
     <style>
         /* Mengatur tampilan dasar (tema gelap mirip chat) */
         body {
             font-family: Arial, sans-serif;
             /* Latar belakang gelap, Anda bisa menggantinya dengan gambar pola/doodle jika punya */
-            background-color: #0f1115; 
+            background-color: #0f1115;
             color: #ffffff;
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
+        }
+
+        body.light-mode {
+            background-color: #e2e8f0;
         }
 
         /* Kotak pembungkus utama untuk tampilan HP (Mobile First) */
@@ -35,21 +40,36 @@
             font-size: 16px;
         }
 
+        body.light-mode .header-chat {
+            background-color: #d4d3d3;
+            color: #393838;
+        }
+
         .header-chat .time {
             font-size: 12px;
             color: #8b939c;
+        }
+
+        body.light-mode .header-chat .time {
+            color: #393838;
         }
 
         /* Daftar menu */
         .menu-list {
             display: flex;
             flex-direction: column;
-            gap: 12px; /* Jarak antar tombol */
+            gap: 12px;
+            /* Jarak antar tombol */
+        }
+
+        body.light-mode .menu-list h2 {
+            color: #393838;
         }
 
         /* Gaya untuk setiap tombol menu */
         .menu-item {
-            background-color: #1a1e24; /* Warna abu-abu gelap */
+            background-color: #1a1e24;
+            /* Warna abu-abu gelap */
             color: #ffffff;
             text-decoration: none;
             padding: 15px;
@@ -59,13 +79,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid #2c323a; /* Garis tepi tipis */
+            border: 1px solid #2c323a;
+            /* Garis tepi tipis */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.2s;
+            transition: all 0.2s ease;
+        }
+
+        body.light-mode .menu-item {
+            background-color: #e3d9ff;
+            color: #393838;
+        }
+
+        body.light-mode .menu-item:hover {
+            background-color: #babec4;
         }
 
         /* Efek saat tombol disentuh atau diklik */
-        .menu-item:hover, .menu-item:active {
+        .menu-item:hover,
+        .menu-item:active {
             background-color: #2c323a;
         }
 
@@ -74,37 +105,80 @@
             margin-right: 10px;
             font-size: 18px;
         }
+
+        /* Mode gelap dan terang */
+        .theme-button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #121212;
+            padding: 0.3rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .theme-button:hover {
+            transform: scale(1.15);
+        }
     </style>
 </head>
-<body>
+
+<body class="light-mode">
 
     <div class="container">
-        
+
         <!-- Header Mirip Chat Telegram/WA -->
         <div class="header-chat">
-            <span>Pilih menu di bawah</span>
-            <span class="time">04:41</span>
+            <span>Pilih menu di bawah •͜•</span>
+            <span class="time"><b>04:41</b></span>
+            <button class="theme-button" id="themeButton"
+                type="button" aria-label="Toggle Theme">
+                ☀️
+            </button>
         </div>
 
         <!-- Daftar Tombol Menu -->
         <div class="menu-list">
 
-            <h1>TEST HALAMAN INDEX</h1>
+            <h2>AFVAN DYEVARISCKY AKHBAR</h2>
             <!-- Ganti tanda # dengan link file html atau link tujuan Bapak -->
             <a href="form_biodata.html" class="menu-item"><span>📊</span> Form Biodata</a>
             <a href="hasil_biodata.html" class="menu-item"><span>📋</span> Hasil Biodata</a>
             <a href="tabel.html" class="menu-item"><span>🔎</span> Tabel</a>
+            <a href="https://instagram.com/af_vannzzz" class="menu-item"><span>🅾</span> Instagram</a>
             <!--<a href="#" class="menu-item"><span>🚩</span> Cek Kecurigaan Hari Ini</a>
             <a href="#" class="menu-item"><span>📍</span> Kunci Lokasi PKL</a>
             <a href="#" class="menu-item"><span>📊</span> Cek Kehadiran Bimbingan PKL</a>
             <a href="#" class="menu-item"><span>📋</span> Pending Approval PKL</a>
             <a href="#" class="menu-item"><span>📔</span> Cek Jurnal Bimbingan PKL</a>-->
-            
+
             <!-- Contoh jika menu ini mengarah ke file atau web lain -->
-            <a href="https://github.com/AfvanDyevarisckyAkhbar" class="menu-item"><span>🌐</span> Ke Github</a>
+            <a href="https://github.com/AfvanDyevarisckyAkhbar" class="menu-item"><span>🌐</span> Ke Web</a>
         </div>
+
+        <script>
+            const themeButton = document.getElementById("themeButton");
+
+            if (themeButton) {
+                themeButton.addEventListener("click", () => {
+                    document.body.classList.toggle("light-mode");
+
+                    const isLight =
+                        document.body.classList.contains("light-mode");
+
+                    themeButton.textContent = isLight ? "☀️" : "🌙";
+
+                    themeButton.setAttribute(
+                        "aria-pressed",
+                        String(isLight)
+                    );
+                });
+            }
+        </script>
 
     </div>
 
 </body>
+
 </html>
